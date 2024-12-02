@@ -1,6 +1,7 @@
 let shop = document.getElementById("shop");
 
-let shopItemsData = [{
+let shopItemsData = [
+{
     id:"ghj",
     name:"Abstract Hoop",
     price: 55,
@@ -13,7 +14,8 @@ let shopItemsData = [{
     price: 45,
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing",
     img: "img-2.jpg"
-},{
+},
+{
     id:"ghjl",
     name:"Ear Stack Set",
     price: 50,
