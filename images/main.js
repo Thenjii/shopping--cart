@@ -2,56 +2,56 @@ let shop = document.getElementById("shop");
 
 let shopItemsData = [
 {
-    id:"ghj",
+    id:"item1",
     name:"Abstract Hoop",
     price: 55,
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing",
     img: "img-1.jpg"
 },
 {
-    id:"ghjk",
+    id:"item2",
     name:"Bold Square Earings",
     price: 45,
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing",
     img: "img-2.jpg"
 },
 {
-    id:"ghjl",
+    id:"item3",
     name:"Ear Stack Set",
     price: 50,
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing",
     img: "img-3.jpg"
 },
 {
-    id:"ghjm",
+    id:"item4",
     name:"Spiral Hoops",
     price: 45,
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing",
     img: "img-4.jpg"
 },
 {
-    id:"ghjn",
+    id:"item5",
     name:"Ovals Necklace",
     price: 65,
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing",
     img: "img-5.jpg"
 },
 {
-    id:"ghjo",
+    id:"item6",
     name:"Ring Stack Set",
     price: 40,
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing",
     img: "img-6.jpg"
 },
 {
-    id:"ghj",
+    id:"item7",
     name:"Spine Necklace",
     price: 95,
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing",
     img: "img-7.jpg"
 },
 {
-    id:"ghj",
+    id:"item8",
     name:"Simple Necklace and Bracelet Set",
     price: 80,
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing",
@@ -70,9 +70,9 @@ let generateShop =()=>{
             <div class="price-quantity">
                 <h2>$ ${price}</h2>
                 <div class="buttons">
-                    <i class="bi bi-dash-lg"></i>
+                    <i onclick="decrease(${id})" class="bi bi-dash-lg"></i>
                     <div id = ${id} class="quantity">0</div>
-                    <i class="bi bi-plus-lg"></i>
+                    <i onclick="increase(${id})" class="bi bi-plus-lg"></i>
                 </div>
             </div>
         </div>
@@ -81,3 +81,12 @@ let generateShop =()=>{
 };
   
 generateShop();
+
+//the number of items
+let decrease = (id)=>{
+    console.log(id)
+}
+let increase = (id)=>{
+    console.log(id)
+}
+let update = ()=>{}
