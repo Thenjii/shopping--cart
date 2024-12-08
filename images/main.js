@@ -87,34 +87,31 @@ generateShop();
 // no. of items
 let decrease = (id) =>{
     let selectedItem = id;
-    let search =cart.find((x) => x.id === selectedItem.id);
+    let search = cart.find((x) => x.id === selectedItem);
 
-    if(search === undefined){
-        cart.push({
-            id:selectedItem = id,
-            item: 1,
-        });
-    } else {
-        search.item -=1;
+    if(search.item === 0) return;
+        else {
+        search.item -= 1;
     }
-
-
-    console.log(cart)
-    
+    console.log(cart); 
+    update(); 
 }
-let increase = (id)=>{
+
+let increase = (id) => {
     let selectedItem = id;
-    let search =cart.find((x) => x.id === selectedItem.id);
+    let search = cart.find((x) => x.id === selectedItem);
 
-    if(search === undefined){
+    if(search === undefined) {
         cart.push({
-            id:selectedItem = id,
+            id: selectedItem = id,
             item: 1,
         });
     } else {
-        search.item +=1;
+        search.item += 1;
     }
-
     console.log(cart);
+    update(selectedItem.id);
+};
+let update = (id)=>{
+    console.log(id)
 }
-let update = ()=>{}
