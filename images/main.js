@@ -1,5 +1,7 @@
 let shop = document.getElementById("shop");
 
+let cart = [];
+
 let shopItemsData = [
 {
     id:"item1",
@@ -59,7 +61,7 @@ let shopItemsData = [
 
 let generateShop =()=>{
     return (shop.innerHTML = shopItemsData.map((x)=>{
-        let{id,name,price,desc,img,} = x
+        let{id,name,price,desc,img} = x
         return`
         <div id = product-id-${id} class="item">
             <img width="220" src=${img} alt="">
@@ -82,11 +84,37 @@ let generateShop =()=>{
   
 generateShop();
 
-//the number of items
-let decrease = (id)=>{
-    console.log(id)
+// no. of items
+let decrease = (id) =>{
+    let selectedItem = id;
+    let search =cart.find((x) => x.id === selectedItem.id);
+
+    if(search === undefined){
+        cart.push({
+            id:selectedItem = id,
+            item: 1,
+        });
+    } else {
+        search.item -=1;
+    }
+
+
+    console.log(cart)
+    
 }
 let increase = (id)=>{
-    console.log(id)
+    let selectedItem = id;
+    let search =cart.find((x) => x.id === selectedItem.id);
+
+    if(search === undefined){
+        cart.push({
+            id:selectedItem = id,
+            item: 1,
+        });
+    } else {
+        search.item +=1;
+    }
+
+    console.log(cart);
 }
 let update = ()=>{}
