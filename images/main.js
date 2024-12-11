@@ -116,7 +116,12 @@ let increase = (id) => {
 let update = (id)=>{
     let search = cart.find((x) => x.id === id);
 
-    console.log(id);
+    // console.log(id);
     document.getElementById(id).innerHTML = search;
+    cartTotal()
 };
 
+let cartTotal = ()=>{
+    let cartIcon = document.getElementById("cartAmount");  
+    cartIcon.innerHTML = cart.map((x)=>x.item).reduce((x,y)=>x+y,0)
+}
