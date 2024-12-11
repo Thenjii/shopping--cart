@@ -9,6 +9,10 @@ body{
     background-color: #e5e5e5;
 }
 
+i{
+    cursor: pointer;
+}
+
 .navbar{
     display: flex;
     justify-content: space-between;
