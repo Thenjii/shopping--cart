@@ -93,8 +93,8 @@ let decrease = (id) =>{
         else {
         search.item -= 1;
     }
-    console.log(cart); 
-    update(); 
+    //console.log(cart); 
+    update(selectedItem.id); 
 }
 
 let increase = (id) => {
@@ -109,9 +109,14 @@ let increase = (id) => {
     } else {
         search.item += 1;
     }
-    console.log(cart);
+    //console.log(cart);
     update(selectedItem.id);
 };
+
 let update = (id)=>{
-    console.log(id)
-}
+    let search = cart.find((x) => x.id === id);
+
+    console.log(id);
+    document.getElementById(id).innerHTML = search;
+};
+
