@@ -1,6 +1,6 @@
 let shop = document.getElementById("shop");
 
-let cart = JSON.parse(localStorage.getItem("data")) || []
+let cart = JSON.parse(localStorage.getItem("data")) || [];
 
 let shopItemsData = [
 {
@@ -80,28 +80,27 @@ let generateShop =()=>{
                     <i onclick="increase(${id})" class="bi bi-plus-lg"></i>
                 </div>
             </div>
-        </div>
-    `;
+        </div>`;
     }).join(""));
 };
   
 generateShop();
 
 // no. of items
-let decrease = (id) =>{
+let remove = (id) =>{
     let selectedItem = id;
     let search = cart.find((x) => x.id === selectedItem);
 
-    if(search.item === 0) return;
+    if(search === undefined) return;
+    else if(search.item === 0) return;
         else {
         search.item -= 1;
     }
     localStorage.setItem("data", JSON.stringify(cart));
-    //console.log(cart); 
     update(selectedItem.id); 
 }
 
-let increase = (id) => {
+let add = (id) => {
     let selectedItem = id;
     let search = cart.find((x) => x.id === selectedItem);
 
@@ -114,14 +113,12 @@ let increase = (id) => {
         search.item += 1;
     }
     localStorage.setItem("data", JSON.stringify(cart));
-    //console.log(cart);
     update(selectedItem.id);
 };
 
 let update = (id)=>{
     let search = cart.find((x) => x.id === id);
 
-    // console.log(id);
     document.getElementById(id).innerHTML = search;
     cartTotal()
 };
