@@ -73,11 +73,11 @@ let generateShop =()=>{
             <div class="price-quantity">
                 <h2>$ ${price}</h2>
                 <div class="buttons">
-                    <i onclick="decrease(${id})" class="bi bi-dash-lg"></i>
+                    <i onclick="remove(${id})" class="bi bi-dash-lg"></i>
                     <div id = ${id} class="quantity">
                         ${search.item === undefined? 0: search.item}
                     </div>
-                    <i onclick="increase(${id})" class="bi bi-plus-lg"></i>
+                    <i onclick="add(${id})" class="bi bi-plus-lg"></i>
                 </div>
             </div>
         </div>`;
@@ -97,6 +97,7 @@ let remove = (id) =>{
         search.item -= 1;
     }
     localStorage.setItem("data", JSON.stringify(cart));
+    //console.log(cart); 
     update(selectedItem.id); 
 }
 
@@ -113,12 +114,14 @@ let add = (id) => {
         search.item += 1;
     }
     localStorage.setItem("data", JSON.stringify(cart));
+    
     update(selectedItem.id);
 };
 
 let update = (id)=>{
     let search = cart.find((x) => x.id === id);
 
+    // console.log(id);
     document.getElementById(id).innerHTML = search;
     cartTotal()
 };
