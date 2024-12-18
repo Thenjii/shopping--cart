@@ -1,4 +1,4 @@
-/*let shop = document.getElementById("shop");
+ /*let shop = document.getElementById("shop");
 
 let cart = JSON.parse(localStorage.getItem("data")) || [];
 
