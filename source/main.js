@@ -139,7 +139,7 @@ let decrement = (id) => {
   }
   update(selectedItem.id);
   basket = basket.filter((x) => x.item !== 0);
-  // console.log(basket);
+  
   localStorage.setItem("data", JSON.stringify(basket));
 };
 let update = (id) => {
