@@ -1,6 +1,5 @@
 let label = document.getElementById("label");
 let ShoppingCart = document.getElementById("shopping-cart");
-
 let cart = JSON.parse(localStorage.getItem("data")) || [];
 
 let calculation = () => {
@@ -71,6 +70,7 @@ let add = (id) => {
   update(selectedItem.id);
   localStorage.setItem("data", JSON.stringify(cart));
 };
+
 let remove = (id) => {
   let selectedItem = id;
   let search = cart.find((x) => x.id === selectedItem.id);
@@ -88,27 +88,28 @@ let remove = (id) => {
 
 let update = (id) => {
   let search = cart.find((x) => x.id === id);
-  // console.log(search.item);
   document.getElementById(id).innerHTML = search.item;
   calculation();
   TotalAmount();
 };
 
+//remove item from cart
 let removeItem = (id) => {
   let selectedItem = id;
-  // console.log(selectedItem.id);
   cart = cart.filter((x) => x.id !== selectedItem.id);
   generateCartItems();
   TotalAmount();
   localStorage.setItem("data", JSON.stringify(cart));
 };
 
+//clear cart
 let clearCart = () => {
   cart = [];
   generateCartItems();
   localStorage.setItem("data", JSON.stringify(cart));
 };
 
+//calc cart total
 let TotalAmount = () => {
   if (cart.length !== 0) {
     let amount = cart
@@ -119,10 +120,12 @@ let TotalAmount = () => {
         return item * search.price;
       })
       .reduce((x, y) => x + y, 0);
-    // console.log(amount);
+      
     label.innerHTML = `
     <h2>Total : R ${amount}</h2>
-    <button class="checkout">Checkout</button>
+    <a href="index.html">
+      <button class="HomeBtn">Continue Shopping</button>
+    </a>
     <button onclick="clearCart()" class="removeAll">Clear Cart</button>
     `;
   } else return;

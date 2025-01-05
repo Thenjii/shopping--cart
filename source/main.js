@@ -1,7 +1,9 @@
 let shop = document.getElementById("shop");
 
+//get cart data from local storage / declare it empty
 let cart = JSON.parse(localStorage.getItem("data")) || [];
 
+//generate items & display them in the DOM 
 let generateShop = () => {
   return (shop.innerHTML = shopItemsData
     .map((x) => {
@@ -30,25 +32,31 @@ let generateShop = () => {
     .join(""));
 };
 
+//displays shop items
 generateShop();
 
+//add items to cart
 let add = (id) => {
   let selectedItem = id;
+  //checks if items is in cart
   let search = cart.find((x) => x.id === selectedItem.id);
 
+  //adds 1 to cart if item isnt in cart
   if (search === undefined) {
     cart.push({
       id: selectedItem.id,
       item: 1,
     });
+    //increase # of item if it's in cart
   } else {
     search.item += 1;
   }
 
-  // console.log(cart);
   update(selectedItem.id);
   localStorage.setItem("data", JSON.stringify(cart));
 };
+
+//remove items from cart
 let remove = (id) => {
   let selectedItem = id;
   let search = cart.find((x) => x.id === selectedItem.id);
@@ -63,9 +71,9 @@ let remove = (id) => {
   
   localStorage.setItem("data", JSON.stringify(cart));
 };
+
 let update = (id) => {
   let search = cart.find((x) => x.id === id);
-  // console.log(search.item);
   document.getElementById(id).innerHTML = search.item;
   calculation();
 };
