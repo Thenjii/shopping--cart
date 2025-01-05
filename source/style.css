@@ -24,11 +24,15 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #344e41;
-  color: #dad7cd;
+  background-color: #c2c5aa;
+  color: #583101;
   padding: 25px 60px;
   margin-bottom: 30px;
+  font-family: "Lavishly Yours", serif;
+  font-weight: 6000;
+  font-style: italic;
 }
+
 
 .cart {
   position: relative;
@@ -118,10 +122,10 @@ a {
 }
 
 .checkout {
-  background-color: rgb(66, 160, 66);
+  background-color: #403d39;
 }
 .removeAll {
-  background-color: rgb(117, 6, 6);
+  background-color: #ccc5b9
 }
 .bi-x-lg {
   color: rgb(123, 0, 0);
@@ -132,7 +136,7 @@ a {
 
 .shopping-cart {
   display: grid;
-  grid-template-columns: repeat(1, 320px);
+  grid-template-columns: repeat(2, 320px);
   justify-content: center;
   gap: 15px;
 }
